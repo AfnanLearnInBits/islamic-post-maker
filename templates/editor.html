@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Post Editor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/editor.css') }}">
+</head>
+<body class="editor-page">
+    <header class="toolbar">
+        <div class="toolbar-left">
+            <h2>Islamic Post Editor</h2>
+        </div>
+
+        <div class="toolbar-center"> 
+
+        </div>
+
+        <div class="toolbar-right">
+            <button id="undo-btn">Undo</button>
+            <button id="redo-btn">Redo</button>
+            <button id="download-btn">Download</button>
+        </div>
+        
+    </header>
+    <main class="main-section">
+        <aside class="left-sidebar">
+               <button id="add-text-btn"> 
+                   Add Text
+               </button>
+        </aside>
+
+        <section class="canvas-section">
+            <canvas id="myCanvas" width="500" height="500" style="border: 2px solid gold;"></canvas>
+        </section>
+
+        <aside class="right-sidebar">
+              <div id="no-selection">
+                <h3>No Item Selected</h3>
+                <p>Select an object to edit its properties.</p>
+              </div>
+
+              <div id="text-properties">
+                <h3>Text Properties</h3>
+                <label for="font-size">Font Size</label>
+
+                <input type="number"
+                 id="font-size"
+                 value="32"
+                 min="8"
+                 max="200">
+
+                 <label for="text-color">Text Color</label>
+                 <input type="color"
+                 id="text-color"
+                 value="#000000">
+
+                 <label for="font-family">Font Family</label>
+                 <select name="Font Family" id="font-family">
+                    <option value="Arial">Arial</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Tahoma">Tahoma</option>
+                    <option value="Courier New">Courier New</option>
+                 </select>
+
+                 <label>Style</label>
+                 <div class="text-style-buttons">
+                    <button id="bold-btn"><b>B</b></button>
+                    <button id="italic-btn"><i>I</i></button>
+                    <button id="underline-btn"><u>U</u></button>
+                 </div>
+
+                
+              </div>
+        </aside>
+
+
+    
+    </main>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/fabric@latest/dist/index.min.js"></script>
+    <script src="{{url_for('static',filename='js/editor.js')}}"></script>
+</body>
+</html>

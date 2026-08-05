@@ -1,0 +1,15 @@
+.section-title{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+.templates-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.template-card{
+    margin: 50px auto;
+}
