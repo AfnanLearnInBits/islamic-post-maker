@@ -1,10 +1,12 @@
 const canvas = new fabric.Canvas('myCanvas',{backgroundColor: '#ffffff'});
 const addTextBtn = document.getElementById("add-text-btn");
 addTextBtn.addEventListener("click", function(){
-    const text = new fabric.IText("New Text",
+    const text = new fabric.Textbox("New Text",
         {
             left:150,
             top:150,
+            width: 300,
+            textAlign: "left",
             fontSize:32,
             fill:'#000000',
             fontFamily:"Arial"
@@ -103,5 +105,15 @@ document.addEventListener("keydown", function(event){
             canvas.renderAll()
 
         }
+    }
+})
+
+const textAlign = document.getElementById("text-align")
+textAlign.addEventListener("change", function(){
+    const selectedObject= canvas.getActiveObject();
+    if (selectedObject) {
+        selectedObject.set("textAlign",textAlign.value);
+        canvas.renderAll();
+    
     }
 })
