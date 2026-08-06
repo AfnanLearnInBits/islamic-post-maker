@@ -19,12 +19,10 @@ addTextBtn.addEventListener("click", function(){
 const noSelection = document.getElementById("no-selection");
 const textProperties = document.getElementById("text-properties");
 canvas.on("selection:created", function() {
-    console.log("Selection Created")
     noSelection.style.display = 'none';
     textProperties.style.display = 'block';
 });
 canvas.on("selection:cleared", function() {
-    console.log("Selection Cleared")
     noSelection.style.display = 'block';
     textProperties.style.display = 'none';
 });
@@ -116,4 +114,22 @@ textAlign.addEventListener("change", function(){
         canvas.renderAll();
     
     }
+})
+const object = document.getElementById("object");
+canvas.on("selection:created", function() {
+    noSelection.style.display = 'none';
+    object.style.display = 'block';
+});
+canvas.on("selection:cleared", function() {
+    noSelection.style.display = 'block';
+    object.style.display = 'none';
+});
+const centerBtn = document.getElementById("center-btn");
+centerBtn.addEventListener("click", function(){
+    const selectedObject = canvas.getActiveObject();
+    if(selectedObject){
+           canvas.centerObject(selectedObject)
+           canvas.renderAll()
+    }
+
 })

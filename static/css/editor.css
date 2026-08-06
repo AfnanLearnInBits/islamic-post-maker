@@ -63,6 +63,21 @@ body.editor-page{
     padding: 20px;
     box-sizing: border-box;
 }
+#object{
+    display: none;
+    border-bottom: 1px solid #ddd;
+}
+#object button{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+}
 #text-properties{
     display: none;
 }
