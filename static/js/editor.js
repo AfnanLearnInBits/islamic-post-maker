@@ -95,3 +95,13 @@ underlineBtn.addEventListener("click", function(){
      canvas.renderAll()
     }
 })
+document.addEventListener("keydown", function(event){
+    if(event.key === "Delete"){
+        const selectedObject = canvas.getActiveObject();
+        if(selectedObject){
+            canvas.remove(selectedObject)
+            canvas.renderAll()
+
+        }
+    }
+})
