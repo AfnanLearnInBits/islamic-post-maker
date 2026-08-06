@@ -133,3 +133,19 @@ centerBtn.addEventListener("click", function(){
     }
 
 })
+const verticalCenterBtn = document.getElementById("vertical-center-btn");
+verticalCenterBtn.addEventListener("click", function(){
+    const selectedObject = canvas.getActiveObject();
+    if(selectedObject){
+        selectedObject.set(canvas.centerObjectV(selectedObject));
+        canvas.renderAll();
+    }
+})
+const horizontalCenterBtn = document.getElementById("horizontal-center-btn");
+horizontalCenterBtn.addEventListener("click", function(){
+    const selectedObject = canvas.getActiveObject();
+    if(selectedObject){
+        selectedObject.set(canvas.centerObjectH(selectedObject));
+        canvas.renderAll();
+    }
+})
