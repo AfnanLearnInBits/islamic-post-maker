@@ -149,3 +149,20 @@ horizontalCenterBtn.addEventListener("click", function(){
         canvas.renderAll();
     }
 })
+const addImageBtn = document.getElementById("add-image-btn")
+const imageInput = document.getElementById("image-input")
+addImageBtn.addEventListener("click", function(){
+    imageInput.click();
+})
+imageInput.addEventListener("change", function(){
+    console.log("CHANGE EVENT FIRED!");
+    const file = imageInput.files[0];
+    console.log("FILE",file);
+    const imageUrl = URL.createObjectURL(file);
+    console.log("URL",imageUrl);
+    fabric.Image.fromURL(imageUrl).then(function(img){
+        canvas.add(img);
+        canvas.setActiveObject(img);
+        canvas.renderAll();
+    })
+})

@@ -49,6 +49,7 @@ body.editor-page{
 .left-sidebar button{
     width: 100%;
     padding: 12px;
+    margin-bottom: 7px;
     font-size: 16px;
     cursor: pointer;
     border: none;
