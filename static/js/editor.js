@@ -19,6 +19,7 @@ addTextBtn.addEventListener("click", function(){
 const noSelection = document.getElementById("no-selection");
 const textProperties = document.getElementById("text-properties");
 const imageProperties = document.getElementById("image-properties")
+const object = document.getElementById("object");
 canvas.on("selection:created", function() {
     const selectedObject = canvas.getActiveObject()
     noSelection.style.display = 'none';
@@ -127,15 +128,7 @@ textAlign.addEventListener("change", function(){
     
     }
 })
-const object = document.getElementById("object");
-canvas.on("selection:created", function() {
-    noSelection.style.display = 'none';
-    object.style.display = 'block';
-});
-canvas.on("selection:cleared", function() {
-    noSelection.style.display = 'block';
-    object.style.display = 'none';
-});
+
 const centerBtn = document.getElementById("center-btn");
 centerBtn.addEventListener("click", function(){
     const selectedObject = canvas.getActiveObject();
@@ -179,16 +172,11 @@ imageInput.addEventListener("change", function(){
     })
 })
 
-canvas.on("selection:created", function() {
-    const selectedObject = canvas.getActiveObject()
-    noSelection.style.display = 'none';
-    if (selectedObject.type==="image"){
-         imageProperties.style.display = 'block';
+const imageOpacity = document.getElementById("image-opacity");
+imageOpacity.addEventListener("input",function(){
+    const selectedObject = canvas.getActiveObject();
+    if(selectedObject && selectedObject.type==='image'){
+        selectedObject.set("opacity",imageOpacity.value/100);
+        canvas.renderAll()
     }
-    
-});
-canvas.on("selection:cleared", function() {
-    noSelection.style.display = 'block';
-    imageProperties.style.display = 'none';
-});
-const imageOpacity = document.getElementById("image-opacity")
+})
