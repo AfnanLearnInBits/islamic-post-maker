@@ -18,13 +18,25 @@ addTextBtn.addEventListener("click", function(){
 });
 const noSelection = document.getElementById("no-selection");
 const textProperties = document.getElementById("text-properties");
+const imageProperties = document.getElementById("image-properties")
 canvas.on("selection:created", function() {
+    const selectedObject = canvas.getActiveObject()
     noSelection.style.display = 'none';
-    textProperties.style.display = 'block';
+    object.style.display = 'block';
+    if(selectedObject.type === "textbox"){
+       textProperties.style.display = 'block';
+       imageProperties.style.display = 'none';
+    } else if (selectedObject.type === 'image'){
+        textProperties.style.display = 'none';
+       imageProperties.style.display = 'block';
+    }
+    
 });
 canvas.on("selection:cleared", function() {
     noSelection.style.display = 'block';
+    object.style.display = 'none';
     textProperties.style.display = 'none';
+    imageProperties.style.display = 'none';
 });
 
 const fontSizeInput = document.getElementById("font-size")
@@ -166,3 +178,17 @@ imageInput.addEventListener("change", function(){
         canvas.renderAll();
     })
 })
+
+canvas.on("selection:created", function() {
+    const selectedObject = canvas.getActiveObject()
+    noSelection.style.display = 'none';
+    if (selectedObject.type==="image"){
+         imageProperties.style.display = 'block';
+    }
+    
+});
+canvas.on("selection:cleared", function() {
+    noSelection.style.display = 'block';
+    imageProperties.style.display = 'none';
+});
+const imageOpacity = document.getElementById("image-opacity")
