@@ -180,3 +180,18 @@ imageOpacity.addEventListener("input",function(){
         canvas.renderAll()
     }
 })
+const duplicateBtn = document.getElementById("duplicate-btn");
+duplicateBtn.addEventListener("click", async function(){
+    const selectedObject = canvas.getActiveObject()
+    if (selectedObject){
+        const clonedObject = await selectedObject.clone();
+            clonedObject.set({
+                left: clonedObject.left + 20,
+                top: clonedObject.top + 20
+            });
+            canvas.add(clonedObject)
+            canvas.setActiveObject(clonedObject)
+            canvas.renderAll()
+        }
+    
+});
