@@ -195,3 +195,12 @@ duplicateBtn.addEventListener("click", async function(){
         }
     
 });
+const deleteObjectBtn = document.getElementById("delete-btn")
+deleteObjectBtn.addEventListener("click",function(){
+    const selectedObject = canvas.getActiveObject()
+    if (selectedObject){
+        canvas.remove(selectedObject);
+        canvas.discardActiveObject();
+        canvas.renderAll();
+    }
+})
