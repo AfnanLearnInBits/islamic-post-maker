@@ -204,3 +204,21 @@ deleteObjectBtn.addEventListener("click",function(){
         canvas.renderAll();
     }
 });
+function saveProject(project){
+    localStorage.setItem("project", JSON.stringify(project))
+}
+const saveBtn = document.getElementById("save-btn");
+saveBtn.addEventListener("click", function(){
+    const canvasData = canvas.toJSON();
+    const projectName = prompt("Enter project name: ")
+    if (projectName && projectName.trim() !== ""){
+          const project = {
+        id: Date.now(),
+        name: projectName.trim(),
+        canvasData: canvasData
+    };
+    saveProject(project)
+ };
+    
+    
+});
